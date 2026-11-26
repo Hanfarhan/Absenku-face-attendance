@@ -1,0 +1,413 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+/* ── CSS Variables ───────────────────────────────────────────────────── */
+:root {
+    --blue-50: #E6F1FB;  --blue-100: #B5D4F4; --blue-200: #85B7EB;
+    --blue-400: #378ADD; --blue-600: #185FA5; --blue-800: #0C447C; --blue-900: #042C53;
+    --green-50: #EAF3DE; --green-600: #3B6D11; --green-800: #27500A;
+    --amber-50: #FAEEDA; --amber-600: #854F0B;
+    --red-50: #FCEBEB;   --red-600: #A32D2D;
+    --gray-200: #B4B2A9; --gray-400: #888780;
+    --gray-600: #5F5E5A; --gray-800: #444441; --gray-900: #2C2C2A;
+    --font: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --radius-md: 8px; --radius-lg: 12px; --radius-xl: 16px;
+}
+
+/* ── Shell ───────────────────────────────────────────────────────────── */
+.fa-shell {
+    display: flex;
+    min-height: calc(100vh - 64px);
+    font-family: var(--font);
+}
+.fa-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background: #F0F4F8;
+}
+.fa-content {
+    flex: 1;
+    padding: 20px 24px;
+    overflow-y: auto;
+}
+
+/* ── Page tabs ───────────────────────────────────────────────────────── */
+.fa-page        { display: none; }
+.fa-page.active { display: block; }
+
+/* ── Sidebar ─────────────────────────────────────────────────────────── */
+.fa-sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    background: #fff;
+    border-right: 0.5px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+}
+.fa-sidebar-logo {
+    padding: 20px 20px 16px;
+    border-bottom: 0.5px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.fa-logo-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: var(--blue-600);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+}
+.fa-logo-icon svg { width: 18px; height: 18px; fill: #fff; }
+.fa-logo-text { font-size: 14px; font-weight: 700; color: var(--blue-800); line-height: 1.2; }
+.fa-logo-sub  { font-size: 10px; color: var(--gray-400); font-weight: 400; }
+
+.fa-sidebar-nav { padding: 12px; flex: 1; }
+.fa-nav-label {
+    font-size: 10px; font-weight: 600; color: var(--gray-400);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0 8px; margin-bottom: 6px; margin-top: 4px;
+}
+.fa-nav-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 9px 10px; border-radius: var(--radius-md);
+    cursor: pointer; font-size: 13px; font-weight: 500;
+    color: var(--gray-600); margin-bottom: 2px;
+    transition: all 0.15s;
+    background: none; border: none; width: 100%;
+    text-align: left; font-family: var(--font);
+}
+.fa-nav-item:hover        { background: var(--blue-50); color: var(--blue-800); }
+.fa-nav-item.active       { background: var(--blue-50); color: var(--blue-800); font-weight: 600; }
+.fa-nav-icon              { width: 16px; height: 16px; flex-shrink: 0; opacity: 0.7; }
+.fa-nav-item.active .fa-nav-icon { opacity: 1; color: var(--blue-600); }
+.fa-nav-badge {
+    margin-left: auto;
+    background: var(--blue-600); color: #fff;
+    font-size: 10px; font-weight: 600;
+    padding: 2px 6px; border-radius: 10px;
+}
+
+.fa-sidebar-footer { padding: 12px; border-top: 0.5px solid #e2e8f0; }
+.fa-sidebar-user {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px; border-radius: var(--radius-md); cursor: pointer;
+}
+.fa-sidebar-user:hover { background: #f8fafc; }
+.fa-user-av {
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--blue-100);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; color: var(--blue-800); flex-shrink: 0;
+}
+.fa-user-name {
+    font-size: 12px; font-weight: 600; color: #1a2332;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.fa-user-role { font-size: 10px; color: var(--gray-400); }
+
+/* ── Topbar ──────────────────────────────────────────────────────────── */
+.fa-topbar {
+    background: #fff; border-bottom: 0.5px solid #e2e8f0;
+    padding: 0 24px; height: 56px;
+    display: flex; align-items: center; gap: 12px;
+    flex-shrink: 0; font-family: var(--font);
+}
+.fa-topbar-title { font-size: 15px; font-weight: 700; color: #1a2332; flex: 1; }
+.fa-topbar-date  { font-size: 12px; color: var(--gray-400); }
+.fa-topbar-notif {
+    width: 34px; height: 34px; border-radius: var(--radius-md);
+    border: 0.5px solid #e2e8f0;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; position: relative; background: #fff;
+}
+.fa-notif-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--blue-600);
+    position: absolute; top: 7px; right: 7px;
+    border: 1.5px solid #fff;
+}
+.fa-topbar-av {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: var(--blue-100);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; color: var(--blue-800); cursor: pointer;
+}
+
+/* ── Greeting ────────────────────────────────────────────────────────── */
+.fa-greeting            { margin-bottom: 20px; }
+.fa-greeting h2         { font-size: 20px; font-weight: 700; color: #1a2332; margin-bottom: 4px; }
+.fa-greeting p          { font-size: 13px; color: var(--gray-600); }
+.fa-today-tag {
+    display: inline-block;
+    background: var(--blue-50); color: var(--blue-800);
+    font-size: 11px; font-weight: 600;
+    padding: 3px 8px; border-radius: 12px; margin-bottom: 8px;
+}
+
+/* ── Stat cards ──────────────────────────────────────────────────────── */
+.fa-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px; margin-bottom: 20px;
+}
+.fa-stat-card {
+    background: #fff; border-radius: var(--radius-lg);
+    border: 0.5px solid #e2e8f0; padding: 16px;
+}
+.fa-stat-icon {
+    width: 36px; height: 36px; border-radius: var(--radius-md);
+    display: flex; align-items: center; justify-content: center; margin-bottom: 12px;
+}
+.fa-stat-icon.blue  { background: var(--blue-50); }
+.fa-stat-icon.green { background: var(--green-50); }
+.fa-stat-icon.amber { background: var(--amber-50); }
+.fa-stat-icon svg   { width: 18px; height: 18px; }
+.fa-stat-label { font-size: 11px; color: var(--gray-400); font-weight: 500; margin-bottom: 4px; }
+.fa-stat-value { font-size: 22px; font-weight: 700; color: #1a2332; line-height: 1; margin-bottom: 4px; }
+.fa-stat-sub   { font-size: 11px; color: var(--gray-400); }
+.fa-stat-badge {
+    display: inline-flex; align-items: center; gap: 3px;
+    font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 10px;
+}
+.fa-stat-badge.green { background: var(--green-50); color: var(--green-600); }
+.fa-stat-badge.amber { background: var(--amber-50); color: var(--amber-600); }
+
+/* ── Generic card ────────────────────────────────────────────────────── */
+.fa-dash-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.fa-card {
+    background: #fff; border-radius: var(--radius-lg);
+    border: 0.5px solid #e2e8f0; padding: 16px;
+}
+.fa-card-header {
+    display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;
+}
+.fa-card-title  { font-size: 13px; font-weight: 700; color: #1a2332; }
+.fa-card-action {
+    font-size: 11px; color: var(--blue-600); cursor: pointer; font-weight: 600;
+    background: none; border: none; font-family: var(--font);
+}
+.fa-card-action:hover { text-decoration: underline; }
+.fa-mt-14 { margin-top: 14px; }
+
+/* ── Week bars ───────────────────────────────────────────────────────── */
+.fa-week-bars    { display: flex; align-items: flex-end; gap: 7px; height: 70px; }
+.fa-week-bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.fa-week-bar     { width: 100%; border-radius: 4px 4px 0 0; transition: height 0.3s; }
+
+/* ── Donut ───────────────────────────────────────────────────────────── */
+.fa-donut-wrap    { display: flex; align-items: center; gap: 14px; }
+.fa-donut-legends { display: flex; flex-direction: column; gap: 7px; }
+.fa-legend-item   { display: flex; align-items: center; gap: 7px; font-size: 12px; color: #1a2332; }
+.fa-legend-dot    { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+
+/* ── Timeline ────────────────────────────────────────────────────────── */
+.fa-timeline   { display: flex; flex-direction: column; gap: 10px; }
+.fa-tl-item    { display: flex; align-items: flex-start; gap: 10px; }
+.fa-tl-dot-col { display: flex; flex-direction: column; align-items: center; }
+.fa-tl-dot     { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 3px; }
+.fa-tl-dot.blue  { background: var(--blue-600); }
+.fa-tl-dot.green { background: var(--green-600); }
+.fa-tl-dot.amber { background: #FAC775; }
+.fa-tl-line    { width: 1.5px; background: #e2e8f0; flex: 1; margin-top: 3px; min-height: 16px; }
+.fa-tl-content { flex: 1; }
+.fa-tl-title   { font-size: 12px; font-weight: 600; color: #1a2332; }
+.fa-tl-time    { font-size: 11px; color: var(--gray-400); }
+
+/* ── Status pills ────────────────────────────────────────────────────── */
+.fa-pill {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;
+}
+.fa-pill.hadir     { background: var(--green-50); color: var(--green-600); }
+.fa-pill.terlambat { background: var(--amber-50); color: var(--amber-600); }
+.fa-pill.gagal     { background: var(--red-50);   color: var(--red-600); }
+.fa-pill-dot       { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
+/* ── Page header (Absensi / Riwayat) ────────────────────────────────── */
+.fa-page-header            { margin-bottom: 20px; }
+.fa-page-header h2         { font-size: 18px; font-weight: 700; color: #1a2332; margin-bottom: 4px; }
+.fa-page-header p          { font-size: 13px; color: var(--gray-600); }
+
+/* ── Attendance layout ───────────────────────────────────────────────── */
+.fa-attendance-layout {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 16px;
+}
+.fa-camera-card {
+    background: #fff; border-radius: var(--radius-xl);
+    border: 0.5px solid #e2e8f0; padding: 20px;
+}
+.fa-camera-title {
+    font-size: 14px; font-weight: 700; color: #1a2332;
+    margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
+}
+.fa-live-badge {
+    background: #E24B4A; color: #fff;
+    font-size: 9px; font-weight: 700;
+    padding: 2px 6px; border-radius: 8px; letter-spacing: 0.05em;
+    display: flex; align-items: center; gap: 4px;
+}
+.fa-live-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #fff; animation: fa-blink 1s infinite;
+}
+@keyframes fa-blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+.fa-camera-viewport {
+    width: 100%; aspect-ratio: 4/3; background: #0f1923;
+    border-radius: var(--radius-lg); overflow: hidden; position: relative;
+    display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+}
+.fa-cam-placeholder { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.fa-cam-icon {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: rgba(55,138,221,0.15);
+    display: flex; align-items: center; justify-content: center;
+}
+.fa-cam-icon svg { width: 28px; height: 28px; fill: var(--blue-400); }
+.fa-cam-text     { font-size: 13px; color: rgba(255,255,255,0.5); font-family: var(--font); }
+.fa-cam-video    { display: none; width: 100%; height: 100%; object-fit: cover; }
+
+.fa-face-overlay {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 160px; height: 180px;
+    pointer-events: none; display: none;
+}
+.fa-face-overlay .corner     { position: absolute; width: 22px; height: 22px; }
+.fa-face-overlay .corner.tl  { top: 0; left: 0;  border-top: 2px solid var(--blue-400); border-left: 2px solid var(--blue-400); }
+.fa-face-overlay .corner.tr  { top: 0; right: 0; border-top: 2px solid var(--blue-400); border-right: 2px solid var(--blue-400); }
+.fa-face-overlay .corner.bl  { bottom: 0; left: 0;  border-bottom: 2px solid var(--blue-400); border-left: 2px solid var(--blue-400); }
+.fa-face-overlay .corner.br  { bottom: 0; right: 0; border-bottom: 2px solid var(--blue-400); border-right: 2px solid var(--blue-400); }
+.fa-scan-line {
+    position: absolute; left: 4px; right: 4px; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--blue-400), transparent);
+    animation: fa-scan 2s linear infinite; display: none;
+}
+@keyframes fa-scan { 0%{top:4px} 100%{top:calc(100% - 6px)} }
+
+.fa-cam-status-bar {
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 14px; border-radius: var(--radius-md); margin-bottom: 14px;
+    font-size: 13px; font-weight: 500;
+    background: var(--blue-50); color: var(--blue-800);
+}
+.fa-status-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.fa-cam-buttons { display: flex; gap: 10px; }
+
+.fa-btn {
+    flex: 1; padding: 10px; border-radius: var(--radius-md);
+    font-family: var(--font); font-size: 13px; font-weight: 600;
+    cursor: pointer; border: none; transition: all 0.15s;
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.fa-btn svg         { width: 14px; height: 14px; fill: currentColor; }
+.fa-btn-outline     { background: #fff; border: 0.5px solid #d1d9e0 !important; color: #1a2332; }
+.fa-btn-outline:hover { background: #f8fafc; }
+.fa-btn-primary     { background: var(--blue-600); color: #fff; }
+.fa-btn-primary:hover { background: var(--blue-800); }
+.fa-btn-primary:disabled { background: var(--gray-200); color: var(--gray-400); cursor: not-allowed; }
+
+/* ── Attendance info panel ───────────────────────────────────────────── */
+.fa-att-info        { display: flex; flex-direction: column; gap: 12px; }
+.fa-info-card       { background: #fff; border-radius: var(--radius-lg); border: 0.5px solid #e2e8f0; padding: 16px; }
+.fa-info-card-title {
+    font-size: 11px; font-weight: 600; color: var(--gray-400);
+    text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 12px;
+}
+.fa-today-status     { display: flex; align-items: center; gap: 10px; }
+.fa-status-icon      { width: 40px; height: 40px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; }
+.fa-status-icon.hadir{ background: var(--green-50); }
+.fa-status-icon.belum{ background: var(--amber-50); }
+.fa-status-icon svg  { width: 22px; height: 22px; }
+.fa-today-status-text{ font-size: 15px; font-weight: 700; color: #1a2332; }
+.fa-today-status-sub { font-size: 12px; color: var(--gray-400); }
+
+.fa-time-row             { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 0.5px solid #f0f4f8; }
+.fa-time-row:last-child  { border-bottom: none; }
+.fa-time-label           { font-size: 12px; color: var(--gray-600); }
+.fa-time-val             { font-size: 12px; font-weight: 600; color: #1a2332; }
+
+.fa-conf-score { display: flex; align-items: center; gap: 8px; }
+.fa-conf-bar   { flex: 1; height: 6px; background: #e2e8f0; border-radius: 3px; overflow: hidden; }
+.fa-conf-fill  { height: 100%; background: var(--blue-600); border-radius: 3px; }
+.fa-conf-pct   { font-size: 12px; font-weight: 700; color: var(--blue-800); min-width: 34px; text-align: right; }
+
+/* ── History / Riwayat ───────────────────────────────────────────────── */
+.fa-history-filters { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+.fa-filter-input,
+.fa-filter-select {
+    padding: 8px 12px; border: 0.5px solid #d1d9e0; border-radius: var(--radius-md);
+    font-family: var(--font); font-size: 12px; color: #1a2332;
+    background: #fff; outline: none;
+}
+.fa-filter-input:focus,
+.fa-filter-select:focus { border-color: var(--blue-400); }
+.fa-filter-input        { flex: 1; }
+.fa-filter-btn {
+    padding: 8px 16px; background: var(--blue-600); color: #fff; border: none;
+    border-radius: var(--radius-md); font-family: var(--font); font-size: 12px; font-weight: 600; cursor: pointer;
+}
+.fa-filter-btn-reset {
+    padding: 8px 16px; background: #fff; color: #1a2332;
+    border: 0.5px solid #d1d9e0; border-radius: var(--radius-md);
+    font-family: var(--font); font-size: 12px; font-weight: 600; cursor: pointer;
+}
+
+.fa-history-table-card { background: #fff; border-radius: var(--radius-lg); border: 0.5px solid #e2e8f0; overflow: hidden; }
+.fa-htable             { width: 100%; border-collapse: collapse; }
+.fa-htable th {
+    background: #f8fafc; padding: 10px 14px; text-align: left;
+    font-size: 11px; font-weight: 600; color: var(--gray-600);
+    text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 0.5px solid #e2e8f0;
+}
+.fa-htable td          { padding: 11px 14px; font-size: 13px; color: #1a2332; border-bottom: 0.5px solid #f0f4f8; }
+.fa-htable tr:last-child td { border-bottom: none; }
+.fa-htable tr:hover td { background: #fafbfc; }
+
+.fa-conf-mini      { display: flex; align-items: center; gap: 6px; }
+.fa-conf-mini-bar  { width: 50px; height: 4px; background: #e2e8f0; border-radius: 2px; overflow: hidden; }
+.fa-conf-mini-fill { height: 100%; border-radius: 2px; }
+
+.fa-pagination      { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-top: 0.5px solid #e2e8f0; }
+.fa-pagination-info { font-size: 12px; color: var(--gray-400); }
+.fa-pagination-btns { display: flex; gap: 4px; }
+.fa-pg-btn {
+    width: 28px; height: 28px; border-radius: var(--radius-md);
+    border: 0.5px solid #e2e8f0; background: #fff;
+    font-family: var(--font); font-size: 12px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; color: #1a2332;
+}
+.fa-pg-btn.active              { background: var(--blue-600); color: #fff; border-color: var(--blue-600); }
+.fa-pg-btn:hover:not(.active):not(:disabled) { background: #f8fafc; }
+.fa-pg-btn:disabled            { opacity: 0.4; cursor: not-allowed; }
+
+/* ── Responsive ──────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+    .fa-sidebar            { display: none; }
+    .fa-stats-grid         { grid-template-columns: 1fr 1fr; }
+    .fa-dash-row           { grid-template-columns: 1fr; }
+    .fa-attendance-layout  { grid-template-columns: 1fr; }
+}
+
+/* ── Face box states untuk halaman absensi (auto-detect) ──── */
+.fa-face-overlay.fa-box-detected .corner {
+    border-color: #4ade80 !important;
+    transition: border-color 0.3s;
+}
+.fa-face-overlay.fa-box-processing .corner {
+    border-color: var(--blue-400) !important;
+    transition: border-color 0.3s;
+}
+/* Lebih dari 1 wajah terdeteksi — border oranye + pulse */
+.fa-face-overlay.fa-box-multiple .corner {
+    border-color: #f97316 !important;
+    animation: fa-pulse-orange 1s infinite;
+}
+@keyframes fa-pulse-orange {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.5; }
+}

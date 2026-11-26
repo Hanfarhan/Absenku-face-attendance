@@ -1,0 +1,175 @@
+/* ── Face Registration Layout ────────────────────────────── */
+.fa-reg-layout        { display: flex; flex-direction: column; gap: 14px; max-width: 600px; }
+.fa-reg-status-card   {
+    display: flex; align-items: center; gap: 14px;
+    background: var(--green-50); border: 0.5px solid #b7dfa0;
+    border-radius: var(--radius-lg); padding: 16px; margin-bottom: 14px;
+}
+.fa-reg-status-icon   {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: #fff; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+.fa-reg-status-icon svg    { width: 24px; height: 24px; }
+.fa-reg-status-title       { font-size: 14px; font-weight: 700; color: var(--green-800); }
+.fa-reg-status-sub         { font-size: 12px; color: var(--green-600); margin-top: 2px; }
+ 
+/* ── Intro / Steps ───────────────────────────────────────── */
+.fa-reg-intro         { max-width: 520px; }
+.fa-reg-intro-card    { background: #fff; border-radius: var(--radius-xl); border: 0.5px solid #e2e8f0; padding: 24px; }
+.fa-reg-steps         { display: flex; flex-direction: column; gap: 14px; }
+.fa-reg-step          { display: flex; align-items: flex-start; gap: 12px; }
+.fa-reg-step-num      {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--blue-600); color: #fff;
+    font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.fa-reg-step-title    { font-size: 13px; font-weight: 600; color: #1a2332; }
+.fa-reg-step-desc     { font-size: 12px; color: var(--gray-600); margin-top: 2px; }
+ 
+/* ── Camera Layout ───────────────────────────────────────── */
+.fa-reg-camera-wrap   {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 14px; align-items: start;
+}
+ 
+/* ── Face Box Overlay ────────────────────────────────────── */
+.fa-reg-face-box      {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px; height: 240px;
+    pointer-events: none;
+}
+.fa-reg-face-oval     { position: absolute; inset: 0; width: 100%; height: 100%; }
+.fa-reg-face-corners  { position: absolute; inset: 0; }
+.fa-reg-corner        { position: absolute; width: 20px; height: 20px; }
+.fa-reg-corner-tl     { top: 10px; left: 10px; border-top: 3px solid #fff; border-left: 3px solid #fff; border-radius: 2px 0 0 0; }
+.fa-reg-corner-tr     { top: 10px; right: 10px; border-top: 3px solid #fff; border-right: 3px solid #fff; border-radius: 0 2px 0 0; }
+.fa-reg-corner-bl     { bottom: 10px; left: 10px; border-bottom: 3px solid #fff; border-left: 3px solid #fff; border-radius: 0 0 0 2px; }
+.fa-reg-corner-br     { bottom: 10px; right: 10px; border-bottom: 3px solid #fff; border-right: 3px solid #fff; border-radius: 0 0 2px 0; }
+ 
+.fa-reg-corner.detected { border-color: #4ade80 !important; }
+#fa-reg-oval.detected   { stroke: #4ade80 !important; stroke-width: 3 !important; opacity: 1 !important; }
+ 
+.fa-reg-scan-line     {
+    position: absolute; left: 10px; right: 10px; height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+    animation: fa-scan 2s linear infinite; display: none;
+}
+ 
+/* ── Guide text ──────────────────────────────────────────── */
+.fa-reg-guide-text    {
+    position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+    background: rgba(0,0,0,0.55); color: #fff; backdrop-filter: blur(6px);
+    font-size: 12px; font-weight: 500; padding: 6px 14px;
+    border-radius: 20px; white-space: nowrap; font-family: var(--font);
+    transition: all 0.3s;
+}
+ 
+/* ── Countdown ───────────────────────────────────────────── */
+.fa-reg-countdown     {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(0,0,0,0.35);
+}
+.fa-reg-countdown span {
+    font-size: 72px; font-weight: 700; color: #fff;
+    font-family: var(--font); animation: fa-pulse 1s ease-in-out infinite;
+}
+@keyframes fa-pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.1)} }
+ 
+/* ── Flash effect ────────────────────────────────────────── */
+.fa-reg-flash         {
+    position: absolute; inset: 0; background: #fff;
+    opacity: 0; pointer-events: none; transition: opacity 0.05s;
+}
+.fa-reg-flash.active  { opacity: 0.7; }
+ 
+/* ── Progress ────────────────────────────────────────────── */
+.fa-reg-progress-wrap  { margin-bottom: 12px; }
+.fa-reg-progress-header{
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;
+}
+.fa-reg-progress-label { font-size: 12px; font-weight: 600; color: #1a2332; }
+.fa-reg-progress-pct   { font-size: 12px; font-weight: 700; color: var(--blue-600); }
+.fa-reg-progress-bar   { height: 6px; background: #e2e8f0; border-radius: 3px; overflow: hidden; margin-bottom: 8px; }
+.fa-reg-progress-fill  { height: 100%; background: var(--blue-600); border-radius: 3px; transition: width 0.4s ease; }
+.fa-reg-direction      {
+    font-size: 12px; font-weight: 600; color: var(--blue-800);
+    background: var(--blue-50); padding: 6px 12px; border-radius: var(--radius-md);
+    text-align: center;
+}
+ 
+/* ── Thumbnails ──────────────────────────────────────────── */
+.fa-reg-thumbs        {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px;
+}
+.fa-reg-thumb-slot    { aspect-ratio: 1; border-radius: var(--radius-md); overflow: hidden; }
+.fa-reg-thumb-empty   {
+    width: 100%; height: 100%; background: #f0f4f8;
+    border: 1.5px dashed #d1d9e0; border-radius: var(--radius-md);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 600; color: var(--gray-400);
+}
+.fa-reg-thumb-slot img {
+    width: 100%; height: 100%; object-fit: cover;
+    border-radius: var(--radius-md);
+    animation: fa-thumb-in 0.3s ease;
+}
+@keyframes fa-thumb-in { from{opacity:0;transform:scale(0.8)} to{opacity:1;transform:scale(1)} }
+ 
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+    .fa-reg-camera-wrap {
+        grid-template-columns: 1fr;
+    }
+    .fa-reg-side {
+        order: -1;
+    }
+    .fa-reg-thumbs {
+        grid-template-columns: repeat(8, 1fr);
+    }
+    .fa-reg-intro { max-width: 100%; }
+    .fa-reg-layout { max-width: 100%; }
+}
+ 
+@media (max-width: 480px) {
+    .fa-reg-thumbs {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .fa-reg-status-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+/* ── Arrow overlay ───────────────────────────────────────── */
+.fa-reg-arrow-overlay {
+    position: absolute;
+    top: 12px; left: 12px;
+    width: 52px; height: 52px;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(6px);
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: #fff;
+    font-family: var(--font);
+    z-index: 10;
+    animation: fa-arrow-pulse 1s ease-in-out infinite;
+}
+@keyframes fa-arrow-pulse {
+    0%,100% { transform: scale(1);    opacity: 1;   }
+    50%      { transform: scale(1.12); opacity: 0.85; }
+}
+
+/* ── Face box wrong state (merah) ────────────────────────── */
+.fa-reg-corner.wrong { border-color: #E24B4A !important; }
+#fa-reg-oval.wrong   {
+    stroke: #E24B4A !important;
+    stroke-width: 3 !important;
+    opacity: 1 !important;
+}

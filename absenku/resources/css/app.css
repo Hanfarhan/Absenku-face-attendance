@@ -1,0 +1,6 @@
+@import './dashboard.css';
+@import './dashboard-reg.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
