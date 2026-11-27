@@ -158,6 +158,6 @@ Pastikan telah menginstall **PHP 8.2+**, **Composer**, **Node.js**, **Python 3.1
 
 ## 🌟 Credits & Acknowledgements
 
-- **Face Anti-Spoofing Model**: Menggunakan bobot model dan arsitektur *MiniFASNet* dari riset open-source [MiniVision Silent-Face-Anti-Spoofing](https://github.com/minivision-ai/Silent-Face-Anti-Spoofing).
+-**Face Anti-Spoofing ONNX Model**: The anti-spoofing / liveness detection ONNX model weights and implementation are sourced from facenox/face-antispoof-onnx, which is based on the MiniVision Silent-Face-Anti-Spoofing architecture.
 - **FaceNet**: Didasarkan pada arsitektur Google FaceNet untuk komputasi representasi embedding wajah berdimensi tinggi.
 ---
